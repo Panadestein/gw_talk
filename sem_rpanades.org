@@ -1,0 +1,24 @@
+#+OPTIONS: num:nil toc:1
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: moon
+#+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h1>
+#+REVEAL_TITLE_SLIDE: <h4 class="author"> %a</h4>
+#+REVEAL_TITLE_SLIDE: <h4 class="author"><a href="http://panadestein.github.io">panadestein.github.io</a></h4>
+#+Title: An overview of GW and its applications to core level spectroscopy
+#+Author: Dr. Ramón L. Panadés Barrueta
+#+Email: panadestein.github.io
+
+* Why is it called GW anyway?
+** Schwinger's functional derivative method
+** Hedin's equations
+
+* Practical GW calculations
+** Quasiparticle equation
+** Typical G_{0}W_{0} algorithm
+** The contour deformation approach for the self-energy
+
+* An example application to core level spectroscopy
+** FHI-aims implementation of GW-based methods
+** Computation of the spectral function of the H_{2}O 1s orbital
+
+* Further reading
