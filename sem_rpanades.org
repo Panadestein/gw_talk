@@ -1,4 +1,5 @@
 #+OPTIONS: num:nil toc:1
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_TRANS: linear
 #+REVEAL_THEME: moon
 #+REVEAL_TITLE_SLIDE: <h2 class="title">%t</h1>
