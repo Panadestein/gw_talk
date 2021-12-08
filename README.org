@@ -1,0 +1,4 @@
+* An introductory GW talk
+
+ This is a simple talk using mostly default configurations from [[https://revealjs.com/][revealjs]] and Org-mode
+ package [[https://github.com/yjwen/org-reveal][org-reveal]].
