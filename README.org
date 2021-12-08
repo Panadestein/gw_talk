@@ -1,4 +1,6 @@
 * An introductory GW talk
 
- This is a simple talk using mostly default configurations from [[https://revealjs.com/][revealjs]] and Org-mode
- package [[https://github.com/yjwen/org-reveal][org-reveal]].
+ This is a simple talk using mostly default configurations from [[https://revealjs.com/][revealjs]] and the Org-mode
+ package [[https://github.com/yjwen/org-reveal][org-reveal]]. I have also attempted to make a =purely functional= presentation
+ using the Racket package [[https://docs.racket-lang.org/slideshow/][Slideshow]]. Although intellectually very tempting, the task
+ proved to require a documentation dive in for slightly non-standard features.

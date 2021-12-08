@@ -11,6 +11,9 @@
 
 * Why is it called GW anyway?
 ** Schwinger's functional derivative method
+- The GW approximation is a perturbative method for solving the many-body problem.
+- It can be derived using a purely diagrammatic approach, or an algebraic approach
+  $$\Sigma(\omega) = G(\omega)W(\omega)$$
 ** Hedin's equations
 
 * Practical GW calculations
@@ -23,3 +26,10 @@
 ** Computation of the spectral function of the H_{2}O 1s orbital
 
 * Further reading
+Check this out:
+#+begin_export html
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Kf6cY0PA8Sw"
+title="YouTube video player" frameborder="0"
+allow="accelerometer; autoplay; clipboard-write;
+ encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#+end_export

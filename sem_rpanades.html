@@ -11,6 +11,18 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/moon.css" id="theme"/>
 
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
 <div class="reveal">
@@ -23,78 +35,94 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-org4f79678">Why is it called GW anyway?</a></li>
-<li><a href="#/slide-org940e334">Practical GW calculations</a></li>
-<li><a href="#/slide-org43401f2">An example application to core level spectroscopy</a></li>
-<li><a href="#/slide-org09b6a47">Further reading</a></li>
+<li><a href="#/slide-orge6c0e11">Why is it called GW anyway?</a></li>
+<li><a href="#/slide-org3d96ee1">Practical GW calculations</a></li>
+<li><a href="#/slide-orgdd5f435">An example application to core level spectroscopy</a></li>
+<li><a href="#/slide-orgb03a5e3">Further reading</a></li>
 </ul>
 </div>
 </div>
 </section>
 
 <section>
-<section id="slide-org4f79678">
-<h2 id="org4f79678">Why is it called GW anyway?</h2>
-<div class="outline-text-2" id="text-org4f79678">
+<section id="slide-orge6c0e11">
+<h2 id="orge6c0e11">Why is it called GW anyway?</h2>
+<div class="outline-text-2" id="text-orge6c0e11">
 </div>
 </section>
-<section id="slide-org2c4b75d">
-<h3 id="org2c4b75d">Schwinger's functional derivative method</h3>
+<section id="slide-org08b046b">
+<h3 id="org08b046b">Schwinger's functional derivative method</h3>
+<ul>
+<li>The GW approximation is a perturbative method for solving the many-body problem.</li>
+<li>It can be derived using a purely diagrammatic approach, or an algebraic approach
+\[\Sigma(\omega) = G(\omega)W(\omega)\]</li>
+
+</ul>
 </section>
-<section id="slide-orgb066be8">
-<h3 id="orgb066be8">Hedin's equations</h3>
+<section id="slide-org5bb0492">
+<h3 id="org5bb0492">Hedin's equations</h3>
 
 </section>
 </section>
 <section>
-<section id="slide-org940e334">
-<h2 id="org940e334">Practical GW calculations</h2>
-<div class="outline-text-2" id="text-org940e334">
+<section id="slide-org3d96ee1">
+<h2 id="org3d96ee1">Practical GW calculations</h2>
+<div class="outline-text-2" id="text-org3d96ee1">
 </div>
 </section>
-<section id="slide-org1d04e39">
-<h3 id="org1d04e39">Quasiparticle equation</h3>
+<section id="slide-org8ce692c">
+<h3 id="org8ce692c">Quasiparticle equation</h3>
 </section>
-<section id="slide-org47d6cc7">
-<h3 id="org47d6cc7">Typical G<sub>0</sub>W<sub>0</sub> algorithm</h3>
+<section id="slide-orgf1de1bf">
+<h3 id="orgf1de1bf">Typical G<sub>0</sub>W<sub>0</sub> algorithm</h3>
 </section>
-<section id="slide-orge7ef3ff">
-<h3 id="orge7ef3ff">The contour deformation approach for the self-energy</h3>
+<section id="slide-orgfe2d36c">
+<h3 id="orgfe2d36c">The contour deformation approach for the self-energy</h3>
 
 </section>
 </section>
 <section>
-<section id="slide-org43401f2">
-<h2 id="org43401f2">An example application to core level spectroscopy</h2>
-<div class="outline-text-2" id="text-org43401f2">
+<section id="slide-orgdd5f435">
+<h2 id="orgdd5f435">An example application to core level spectroscopy</h2>
+<div class="outline-text-2" id="text-orgdd5f435">
 </div>
 </section>
-<section id="slide-orged2962a">
-<h3 id="orged2962a">FHI-aims implementation of GW-based methods</h3>
+<section id="slide-org362d778">
+<h3 id="org362d778">FHI-aims implementation of GW-based methods</h3>
 </section>
-<section id="slide-orgeb584e6">
-<h3 id="orgeb584e6">Computation of the spectral function of the H<sub>2</sub>O 1s orbital</h3>
+<section id="slide-org80777c8">
+<h3 id="org80777c8">Computation of the spectral function of the H<sub>2</sub>O 1s orbital</h3>
 
 </section>
 </section>
 <section>
-<section id="slide-org09b6a47">
-<h2 id="org09b6a47">Further reading</h2>
+<section id="slide-orgb03a5e3">
+<h2 id="orgb03a5e3">Further reading</h2>
+<p>
+Check this out:
+</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Kf6cY0PA8Sw"
+title="YouTube video player" frameborder="0"
+allow="accelerometer; autoplay; clipboard-write;
+ encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 </section>
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom/zoom.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
-
 
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
-plugins: [RevealMarkdown, RevealZoom, RevealNotes]
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
 });
 
 </script>
