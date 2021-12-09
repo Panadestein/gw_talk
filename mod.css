@@ -1,0 +1,4 @@
+// Modify some defaults from revealjs
+
+reveal, .reveal div { }
+.reveal a { color: #267CB9; text-decoration: none; }
