@@ -1,4 +1,56 @@
 // Modify some defaults from revealjs
 
-reveal, .reveal div { }
-.reveal a { color: #267CB9; text-decoration: none; }
+// Start customization
+
+body {}
+
+reveal, .reveal div {
+  background: #fff;
+}
+
+.reveal h1 {
+  color: #073642;
+  font-size: 50pt;
+}
+
+.reveal h2 {
+  font-size: 39pt;
+}
+
+.reveal h3 {
+  font-size: 30pt;
+}
+
+.reveal ul li {
+  font-size: 24pt;
+}
+
+.reveal p {
+  font-size: 24pt;
+}
+
+.reveal-viewport {
+  background: #073642;
+  background-color: #073642;
+}
+
+.reveal a {
+  color: #267CB9;
+  text-decoration: none;
+}
+
+.reveal .example {
+  color: #fff;
+  font-size: 15px;
+  background-color: #252e32;
+}
+
+#table-of-contents li, #table-of-contents a {
+  font-weight: 500;
+  vertical-align: middle;
+  list-style: circle;
+}
+
+.reveal img {
+  border: 1px solid #000;
+}

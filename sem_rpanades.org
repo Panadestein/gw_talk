@@ -1,16 +1,13 @@
-# Local variables:
-# after-save-hook: org-reveal-export-to-html
-# end:
 #+OPTIONS: num:nil toc:1
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_TRANS: fade
 #+REVEAL_THEME: serif
 #+REVEAL_PLUGINS: (highlight)
 #+REVEAL_EXTRA_CSS: ./mod.css
-#+REVEAL_TITLE_SLIDE: <h3 class="title">%t</h3>
+#+REVEAL_TITLE_SLIDE: <h1 class="title">%t</h1>
 #+REVEAL_TITLE_SLIDE: <br>
-#+REVEAL_TITLE_SLIDE: <h4 class="author"> %a</h4>
-#+REVEAL_TITLE_SLIDE: <h4 class="author"><a href="http://panadestein.github.io">panadestein.github.io</a></h4>
+#+REVEAL_TITLE_SLIDE: <h3 class="author"> %a</h3>
+#+REVEAL_TITLE_SLIDE: <h3 class="author"><a href="http://panadestein.github.io">panadestein.github.io</a></h3>
 #+MACRO: color @@html:<font color="$1">$2</font>@@
 #+Title: An overview of GW and its applications to core level spectroscopy
 #+Author: Dr. Ramón L. Panadés Barrueta
@@ -25,9 +22,8 @@
   {\hbar\omega - \epsilon_n +i\eta\hbar\text{sgn}(\epsilon_n-\mu)}
   \end{equation*}
 - Can be used for finite size or extended systems, up to hundreds of atoms.
-** Schwinger's functional derivative method
-- It can be derived using a purely diagrammatic approach, or an algebraic approach
-  $$\Sigma(\omega) = G(\omega)W(\omega)$$
+** Sketched derivation
+- GW can be derived using a purely diagrammatic approach, or a functional derivative approach
 ** Hedin's equations
 
 * Practical GW calculations
@@ -3464,6 +3460,7 @@ The {{{color(green, aims.out)}}} file
 ------------------------------------------------------------
 #+end_src
 *** Spectral function
+
 #+begin_export html
  <!-- <object data="./Figures/xps_h2o.pdf" type="application/pdf" width="750px" height="750px">
     <embed src="./Figures/xps_h2o.pdf" type="application/pdf">
@@ -3475,7 +3472,9 @@ The {{{color(green, aims.out)}}} file
 #+end_export
 
 * Learning resources
+
 ** Publications and textbooks
+
 #+begin_export html
 <table cellspacing="0" cellpadding="0" rules=none>
     <tbody>
@@ -3515,14 +3514,27 @@ title="Large Scale" frameborder="0" allow="accelerometer; autoplay;
  clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 #+end_export
 
-* Thank you very much
+** FHI-aims tutorial series
+#+begin_export html
+<iframe src="https://fhi-aims-club.gitlab.io/tutorials/rpa-and-gw-for-molecules-and-solids/"
+width="900" height="500"></iframe>
+#+end_export
+
+* 
 :PROPERTIES:
 :UNNUMBERED: notoc
 :END:
 #+begin_export html
+<h1>Thank you very much</h1>
 <br>
-<a href="https://github.com/Panadestein/gw_talk">Slides available on GitHub</a><br>
-<img src="./Figures/en.jpg" width="25%"> 
-<img src="./Figures/aims.png" width="35%">
-<img src="./Figures/tub.png" width="35%">
+<a href="https://github.com/Panadestein/gw_talk"><p>Slides source on GitHub</p></a>
+<img src="./Figures/en.jpg" width="17%" style="padding: 29px; border: 0px;">
+<img src="./Figures/aims.png" width="25%" style="padding: 29px; border: 0px;">
+<img src="./Figures/tub.png" width="25%" style="padding: 29px; border: 0px;">
 #+end_export
+
+* COMMENT This section ensures revealjs publishing when saving
+
+# Local variables:
+# eval: (add-hook 'after-save-hook 'org-reveal-export-to-html t t)
+# end:

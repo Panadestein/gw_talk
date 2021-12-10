@@ -28,32 +28,32 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section id="sec-title-slide"><h3 class="title">An overview of GW and its applications to core level spectroscopy</h3>
+<section id="sec-title-slide"><h1 class="title">An overview of GW and its applications to core level spectroscopy</h1>
 <br>
-<h4 class="author"> Dr. Ramón L. Panadés Barrueta</h4>
-<h4 class="author"><a href="http://panadestein.github.io">panadestein.github.io</a></h4>
+<h3 class="author"> Dr. Ramón L. Panadés Barrueta</h3>
+<h3 class="author"><a href="http://panadestein.github.io">panadestein.github.io</a></h3>
 </section>
 <section id="sec-table-of-contents"><div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-org6fbd9e8">Why is it called GW anyway?</a></li>
-<li><a href="#/slide-orge336152">Practical GW calculations</a></li>
-<li><a href="#/slide-orgf92c27e">Example application to core level spectroscopy</a></li>
-<li><a href="#/slide-orgbed1eab">Learning resources</a></li>
+<li><a href="#/slide-orgeba88b2">Why is it called GW anyway?</a></li>
+<li><a href="#/slide-orga095557">Practical GW calculations</a></li>
+<li><a href="#/slide-orgd676fd0">Example application to core level spectroscopy</a></li>
+<li><a href="#/slide-org1c950e7">Learning resources</a></li>
 </ul>
 </div>
 </div>
 </section>
 
 <section>
-<section id="slide-org6fbd9e8">
-<h2 id="org6fbd9e8">Why is it called GW anyway?</h2>
-<div class="outline-text-2" id="text-org6fbd9e8">
+<section id="slide-orgeba88b2">
+<h2 id="orgeba88b2">Why is it called GW anyway?</h2>
+<div class="outline-text-2" id="text-orgeba88b2">
 </div>
 </section>
-<section id="slide-orgc01fcdb">
-<h3 id="orgc01fcdb">GW in a nutshell</h3>
+<section id="slide-orgd0223d4">
+<h3 id="orgd0223d4">GW in a nutshell</h3>
 <ul>
 <li>Perturbative method for solving the many-body problem.</li>
 <li><p>
@@ -70,56 +70,55 @@ G(\mathbf{r}, \mathbf{r'}; \omega) = \sum_n \frac{f_n(\mathbf{r})f_n^{*}(\mathbf
 
 </ul>
 </section>
-<section id="slide-org2768931">
-<h3 id="org2768931">Schwinger's functional derivative method</h3>
+<section id="slide-orga38916b">
+<h3 id="orga38916b">Sketched derivation</h3>
 <ul>
-<li>It can be derived using a purely diagrammatic approach, or an algebraic approach
-\[\Sigma(\omega) = G(\omega)W(\omega)\]</li>
+<li>GW can be derived using a purely diagrammatic approach, or a functional derivative approach</li>
 
 </ul>
 </section>
-<section id="slide-org6d42503">
-<h3 id="org6d42503">Hedin's equations</h3>
+<section id="slide-org61e39fe">
+<h3 id="org61e39fe">Hedin's equations</h3>
 
 </section>
 </section>
 <section>
-<section id="slide-orge336152">
-<h2 id="orge336152">Practical GW calculations</h2>
-<div class="outline-text-2" id="text-orge336152">
+<section id="slide-orga095557">
+<h2 id="orga095557">Practical GW calculations</h2>
+<div class="outline-text-2" id="text-orga095557">
 </div>
 </section>
-<section id="slide-org672eba5">
-<h3 id="org672eba5">Quasiparticle equation</h3>
+<section id="slide-orgcea5602">
+<h3 id="orgcea5602">Quasiparticle equation</h3>
 </section>
-<section id="slide-org9d7f50a">
-<h3 id="org9d7f50a">Typical G<sub>0</sub>W<sub>0</sub> algorithm</h3>
+<section id="slide-org97b0f45">
+<h3 id="org97b0f45">Typical G<sub>0</sub>W<sub>0</sub> algorithm</h3>
 <p>
 GW typically scales as \(O(N^4)\), we are working on reducing the scaling to \(O(N^3)\)
 </p>
 </section>
-<section id="slide-org12e2ac2">
-<h3 id="org12e2ac2">The contour deformation approach for the self-energy</h3>
+<section id="slide-org2e813b5">
+<h3 id="org2e813b5">The contour deformation approach for the self-energy</h3>
 
 </section>
 </section>
 <section>
-<section id="slide-orgf92c27e">
-<h2 id="orgf92c27e">Example application to core level spectroscopy</h2>
-<div class="outline-text-2" id="text-orgf92c27e">
+<section id="slide-orgd676fd0">
+<h2 id="orgd676fd0">Example application to core level spectroscopy</h2>
+<div class="outline-text-2" id="text-orgd676fd0">
 </div>
 </section>
-<section id="slide-org0b64195">
-<h3 id="org0b64195">FHI-aims implementation of GW-based methods</h3>
+<section id="slide-orgeb70e00">
+<h3 id="orgeb70e00">FHI-aims implementation of GW-based methods</h3>
 </section>
-<section id="slide-orga1e26a7">
-<h3 id="orga1e26a7">Computation of the spectral function of the H<sub>2</sub>O 1s orbital</h3>
+<section id="slide-org8605ae6">
+<h3 id="org8605ae6">Computation of the spectral function of the H<sub>2</sub>O 1s orbital</h3>
 <p>
 Some text here
 </p>
 </section>
-<section id="slide-org30bcf3c">
-<h4 id="org30bcf3c"></h4>
+<section id="slide-org16279be">
+<h4 id="org16279be"></h4>
 <p>
 The <font color="green"> geometry.in</font> file
 </p>
@@ -131,8 +130,8 @@ atom        -0.76443318        0.00000000        0.58917024  H
 </code></pre>
 </div>
 </section>
-<section id="slide-orgdf33efe">
-<h4 id="orgdf33efe"></h4>
+<section id="slide-orge3ccc78">
+<h4 id="orge3ccc78"></h4>
 <p>
 The <font color="green"> control.in</font> file
 </p>
@@ -333,8 +332,8 @@ The <font color="green"> control.in</font> file
 </code></pre>
 </div>
 </section>
-<section id="slide-org44f2327">
-<h4 id="org44f2327"></h4>
+<section id="slide-org30cfe61">
+<h4 id="org30cfe61"></h4>
 <p>
 The <font color="green"> aims.out</font> file
 </p>
@@ -3559,8 +3558,8 @@ The <font color="green"> aims.out</font> file
 </code></pre>
 </div>
 </section>
-<section id="slide-org4aa4346">
-<h4 id="org4aa4346">Spectral function</h4>
+<section id="slide-org72e6295">
+<h4 id="org72e6295">Spectral function</h4>
  <!-- <object data="./Figures/xps_h2o.pdf" type="application/pdf" width="750px" height="750px">
     <embed src="./Figures/xps_h2o.pdf" type="application/pdf">
         <p>This browser does not support PDF viewing, but you can download the file
@@ -3572,13 +3571,13 @@ The <font color="green"> aims.out</font> file
 </section>
 </section>
 <section>
-<section id="slide-orgbed1eab">
-<h2 id="orgbed1eab">Learning resources</h2>
-<div class="outline-text-2" id="text-orgbed1eab">
+<section id="slide-org1c950e7">
+<h2 id="org1c950e7">Learning resources</h2>
+<div class="outline-text-2" id="text-org1c950e7">
 </div>
 </section>
-<section id="slide-org0da9627">
-<h3 id="org0da9627">Publications and textbooks</h3>
+<section id="slide-org25c99d5">
+<h3 id="org25c99d5">Publications and textbooks</h3>
 <table cellspacing="0" cellpadding="0" rules=none>
     <tbody>
         <td>
@@ -3601,8 +3600,8 @@ The <font color="green"> aims.out</font> file
 </table>
 
 </section>
-<section id="slide-org63789a7">
-<h3 id="org63789a7">Video tutorials</h3>
+<section id="slide-org6198e9d">
+<h3 id="org6198e9d">Video tutorials</h3>
 <iframe width="336" height="189" src="https://www.youtube.com/embed/Kf6cY0PA8Sw"
  title="GW Golze" frameborder="0" allow="accelerometer; autoplay;
  clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -3617,15 +3616,22 @@ title="Large Scale" frameborder="0" allow="accelerometer; autoplay;
  clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </section>
+<section id="slide-orga76d897">
+<h3 id="orga76d897">FHI-aims tutorial series</h3>
+<iframe src="https://fhi-aims-club.gitlab.io/tutorials/rpa-and-gw-for-molecules-and-solids/"
+width="900" height="500"></iframe>
+
+</section>
 </section>
 <section>
-<section id="slide-orgf5ee953">
-<h2 id="orgf5ee953">Thank you very much</h2>
+<section id="slide-orgf07745c">
+<h2 id="orgf07745c"></h2>
+<h1>Thank you very much</h1>
 <br>
-<a href="https://github.com/Panadestein/gw_talk">Slides available on GitHub</a><br>
-<img src="./Figures/en.jpg" width="25%"> 
-<img src="./Figures/aims.png" width="35%">
-<img src="./Figures/tub.png" width="35%">
+<a href="https://github.com/Panadestein/gw_talk"><p>Slides source on GitHub</p></a>
+<img src="./Figures/en.jpg" width="17%" style="padding: 29px; border: 0px;">
+<img src="./Figures/aims.png" width="25%" style="padding: 29px; border: 0px;">
+<img src="./Figures/tub.png" width="25%" style="padding: 29px; border: 0px;">
 </section>
 </section>
 </div>
