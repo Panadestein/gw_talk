@@ -2,7 +2,7 @@
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_TRANS: fade
 #+REVEAL_THEME: serif
-#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_PLUGINS: (markdown highlight notes)
 #+REVEAL_EXTRA_CSS: ./mod.css
 #+REVEAL_TITLE_SLIDE: <h1 class="title">%t</h1>
 #+REVEAL_TITLE_SLIDE: <br>
@@ -15,7 +15,10 @@
 
 * Why is it called GW anyway?
 ** GW in a nutshell
-- Perturbative method for solving the many-body problem.
+#+BEGIN_NOTES
+  There is a family of GW methods
+#+END_NOTES
+- Perturbative methods for solving the many-body problem.
 - The main object in the method is the one-particle Green's function:
   \begin{equation*}
   G(\mathbf{r}, \mathbf{r'}; \omega) = \sum_n \frac{f_n(\mathbf{r})f_n^{*}(\mathbf{r'})}
