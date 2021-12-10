@@ -3,4 +3,9 @@
  This talk was created using mostly default configurations from [[https://revealjs.com/][revealjs]] and the Org-mode
  package [[https://github.com/yjwen/org-reveal][org-reveal]]. I have also attempted to make a /purely functional/ presentation
  using the Racket package [[https://docs.racket-lang.org/slideshow/][Slideshow]]. Aside the intellectual challenge, the task 
- required long hours of documentation dive-in, making it unsuitable for the scope of the talk. 
+ required long hours of documentation dive-in, making it unsuitable for the scope of the talk.
+
+** Disclaimer
+This presentation features fragments of input and output files of [[https://fhi-aims.org/][FHI-aims]]. This content might
+be subject to copyright. I do posses a valid license of the software.
+ 
