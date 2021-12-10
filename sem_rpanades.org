@@ -1,9 +1,25 @@
 #+OPTIONS: num:nil toc:1
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
-#+REVEAL_TRANS: fade
+#+REVEAL_TRANS: convex
 #+REVEAL_THEME: serif
 #+REVEAL_PLUGINS: (markdown highlight notes)
+#+HTML_HEAD_EXTRA: <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML'>
+#+HTML_HEAD_EXTRA: </script> 
+#+HTML_HEAD_EXTRA: <script type="text/x-mathjax-config">
+#+HTML_HEAD_EXTRA:     MathJax.Hub.Config({
+#+HTML_HEAD_EXTRA:         tex2jax: {
+#+HTML_HEAD_EXTRA:             inlineMath: [['$','$'], ['\\(','\\)']],
+#+HTML_HEAD_EXTRA:             displayMath: [['$$','$$'], ['\\[','\\]']],
+#+HTML_HEAD_EXTRA:             processEscapes: true,
+#+HTML_HEAD_EXTRA:             processEnvironments: true,
+#+HTML_HEAD_EXTRA:         }
+#+HTML_HEAD_EXTRA:     });
+#+HTML_HEAD_EXTRA: </script> 
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
+#+HTML_HEAD_EXTRA: <script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js">
+#+HTML_HEAD_EXTRA: </script> 
 #+REVEAL_EXTRA_CSS: ./mod.css
+#+REVEAL_REVEAL_JS_VERSION: 4
 #+REVEAL_TITLE_SLIDE: <h1 class="title">%t</h1>
 #+REVEAL_TITLE_SLIDE: <br>
 #+REVEAL_TITLE_SLIDE: <h3 class="author"> %a</h3>
@@ -16,7 +32,8 @@
 * Why is it called GW anyway?
 ** GW in a nutshell
 #+BEGIN_NOTES
-  There is a family of GW methods
+  There is a family of GW methods, the simplest one is the single-shot GoWo
+  You can use also for computing correlation energies of course
 #+END_NOTES
 - Perturbative methods for solving the many-body problem.
 - The main object in the method is the one-particle Green's function:
@@ -24,15 +41,36 @@
   G(\mathbf{r}, \mathbf{r'}; \omega) = \sum_n \frac{f_n(\mathbf{r})f_n^{*}(\mathbf{r'})}
   {\hbar\omega - \epsilon_n +i\eta\hbar\text{sgn}(\epsilon_n-\mu)}
   \end{equation*}
+- Excellent for charge excitations (IPs, EAs, fundamental gaps, CE)
 - Can be used for finite size or extended systems, up to hundreds of atoms.
-** Sketched derivation
-- GW can be derived using a purely diagrammatic approach, or a functional derivative approach
+** How can it be derived
+#+BEGIN_NOTES
+The functional derivative method was developed by Schwinger. The Hedin's equations
+are the first step in the GW derivation, which is a lengthy process 
+#+END_NOTES
+- GW can be derived using a purely diagrammatic approach, or a functional derivative one
 ** Hedin's equations
 
 * Practical GW calculations
 ** Quasiparticle equation
-** Typical G_{0}W_{0} algorithm
 GW typically scales as $O(N^4)$, we are working on reducing the scaling to $O(N^3)$
+** Typical G_{0}W_{0} algorithm
+#+begin_export html
+<pre id="gwalg" style="display:hidden;">
+% This algorithm is inspired by the Figure 10 of Frontiers in chemistry 7 (2019): 377.
+\begin{algorithmic}
+\PROCEDURE{GW}{$\epsilon^{KS}[1:s], \phi^{KS}[1:s], \Sigma^{x}[1:s], W_{0}^{c}[1:\omega]$}
+\FOR{$s \in \{1:N\}$}
+\WHILE{$\Delta \epsilon < \text{THS}$ }
+\ENDWHILE
+\ENDFOR
+\ENDPROCEDURE
+\end{algorithmic}
+</pre>
+<script>
+    pseudocode.renderElement(document.getElementById("gwalg"), { indentSize: '1.0em' });
+</script> 
+#+end_export
 ** The contour deformation approach for the self-energy
 
 * Example application to core level spectroscopy

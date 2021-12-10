@@ -54,3 +54,13 @@ reveal, .reveal div {
 .reveal img {
   border: 1px solid #000;
 }
+
+.reveal pre {
+  float: left;
+  left: 0;
+  display: block;
+  position: static;
+  width: 90%;
+  text-align: left;
+  word-wrap: normal;
+}
