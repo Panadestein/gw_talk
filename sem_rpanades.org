@@ -1,30 +1,28 @@
+# No section numbering, only one level table of contents
 #+OPTIONS: num:nil toc:1
+
+# Enable: browser history, fragment IDs in URLs, mouse wheel, links between presentations
+#+OPTIONS: reveal_history:t reveal_fragmentinurl:t
+#+OPTIONS: reveal_mousewheel:t reveal_inter_presentation_links:t
+
+# Some HTML options
+#+HTML_HEAD: <base target="_blank">
+
+# Revealjs options
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
-#+REVEAL_TRANS: convex
 #+REVEAL_THEME: serif
-#+REVEAL_PLUGINS: (markdown highlight notes)
-#+HTML_HEAD_EXTRA: <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML'>
-#+HTML_HEAD_EXTRA: </script> 
-#+HTML_HEAD_EXTRA: <script type="text/x-mathjax-config">
-#+HTML_HEAD_EXTRA:     MathJax.Hub.Config({
-#+HTML_HEAD_EXTRA:         tex2jax: {
-#+HTML_HEAD_EXTRA:             inlineMath: [['$','$'], ['\\(','\\)']],
-#+HTML_HEAD_EXTRA:             displayMath: [['$$','$$'], ['\\[','\\]']],
-#+HTML_HEAD_EXTRA:             processEscapes: true,
-#+HTML_HEAD_EXTRA:             processEnvironments: true,
-#+HTML_HEAD_EXTRA:         }
-#+HTML_HEAD_EXTRA:     });
-#+HTML_HEAD_EXTRA: </script> 
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
-#+HTML_HEAD_EXTRA: <script src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js">
-#+HTML_HEAD_EXTRA: </script> 
+#+REVEAL_INIT_OPTIONS: transition:'convex'
+#+REVEAL_PLUGINS: (highlight notes)
 #+REVEAL_EXTRA_CSS: ./mod.css
 #+REVEAL_REVEAL_JS_VERSION: 4
 #+REVEAL_TITLE_SLIDE: <h1 class="title">%t</h1>
 #+REVEAL_TITLE_SLIDE: <br>
 #+REVEAL_TITLE_SLIDE: <h3 class="author"> %a</h3>
-#+REVEAL_TITLE_SLIDE: <h3 class="author"><a href="http://panadestein.github.io">panadestein.github.io</a></h3>
+#+REVEAL_TITLE_SLIDE: <h3 class="author"><a href="http://panadestein.github.io "target="_blank">panadestein.github.io</a></h3>
+
+# Macro for color
 #+MACRO: color @@html:<font color="$1">$2</font>@@
+
 #+Title: An overview of GW and its applications to core level spectroscopy
 #+Author: Dr. Ramón L. Panadés Barrueta
 #+Email: panadestein.github.io
@@ -34,42 +32,115 @@
 #+BEGIN_NOTES
   There is a family of GW methods, the simplest one is the single-shot GoWo
   You can use also for computing correlation energies of course
+  DFT and GW were developed almost at the same time, but the latter was computationally
+  more expensive, which delayed its widespread application
 #+END_NOTES
 - Perturbative methods for solving the many-body problem.
 - The main object in the method is the one-particle Green's function:
   \begin{equation*}
-  G(\mathbf{r}, \mathbf{r'}; \omega) = \sum_n \frac{f_n(\mathbf{r})f_n^{*}(\mathbf{r'})}
-  {\hbar\omega - \epsilon_n +i\eta\hbar\text{sgn}(\epsilon_n-\mu)}
+  \LARGE{G(\mathbf{r}, \mathbf{r'}; \omega) = \sum_n \frac{f_n(\mathbf{r})f_n^{*}(\mathbf{r'})}
+  {\hbar\omega - \epsilon_n +i\eta\hbar\text{sgn}(\epsilon_n-\mu)}}
   \end{equation*}
+  
 - Excellent for charge excitations (IPs, EAs, fundamental gaps, CE)
 - Can be used for finite size or extended systems, up to hundreds of atoms.
-** How can it be derived
+** Derivation
 #+BEGIN_NOTES
 The functional derivative method was developed by Schwinger. The Hedin's equations
-are the first step in the GW derivation, which is a lengthy process 
+are the first step in the GW derivation, which is a lengthy process
+Beware that the numbers are a convenient abbreviation 1 -> (r_1, t_1)
 #+END_NOTES
-- GW can be derived using a purely diagrammatic approach, or a functional derivative one
-** Hedin's equations
+#+begin_src latex :exports none
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+
+\begin{document}
+
+\definecolor{myblue}{HTML}{267CB9}
+
+\begin{align*}
+    G(1, 2) &= G_0(1, 2) + \int G_0(1, 3)\Sigma(3,4)G(4,3)d(3,4)\\[20pt]
+    \Gamma(1,2,3) &= \delta(1,2)\delta(1,3) \\[20pt]
+    \chi_0(1,2) &= -iG(1,2)G(1,2)\\[20pt]
+    W(1,2) &= v(1,2) + \int v(1,3)\chi_0(3,4)W(4,2)d(3,4)\\[20pt]
+    \Sigma(1,2) &= \color{myblue} \mathbf{iG(1,2)W(1^+,2)}
+\end{align*}
+
+\end{document}
+#+end_src
+
+#+begin_export html
+<p style="text-justify: auto;">
+GW is an approximation to an exact set of integro-differential equations
+(<a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.139.A796">Hedin's equations</a>). The latter
+can be derived using a diagrammatic approach, or alternatively the Schwinger's functional derivative technique.
+</p>
+<img src="./Figures/gweq.svg" width="35%" style="padding: 29px; border: 0px;">
+<img src="./Figures/hedin_eqs.jpg" width="30%" style="padding: 29px; border: 0px;">
+<p style="font-size: 40%">Image from
+<a href="https://www.frontiersin.org/articles/10.3389/fchem.2019.00377/full" target="_blank">GW compendium</a></p>
+#+end_export
+
+** From Hedin's equations to GW
+#+begin_export html
+<img src="./Figures/hedin_pentagon.svg" width="30%" style="border: 0px;">
+<img class="fragment" data-fragment-index="1" src="./Figures/gw_pentagon.svg" width="45%" style="border: 0px;">
+<p class="fragment" data-fragment-index="1" style="font-size: 40%">Images from
+<a href="https://docs.abinit.org/theory/mbt/" target="_blank">ABINIT</a> website</p>
+#+end_export
 
 * Practical GW calculations
 ** Quasiparticle equation
 GW typically scales as $O(N^4)$, we are working on reducing the scaling to $O(N^3)$
 ** Typical G_{0}W_{0} algorithm
+#+begin_src latex :exports none
+  \documentclass{article}
+  \usepackage[utf8]{inputenc}
+  \usepackage{algorithm2e}
+  \usepackage{braket}
+
+  \renewcommand{\thealgocf}{}
+
+  \begin{document}
+
+  \SetKwComment{Comment}{/*}{*/}
+
+  % This algorithm is inspired by the Figure 10 of Frontiers in chemistry 7 (2019): 377.
+
+  \begin{algorithm}
+    \SetAlgoLined\DontPrintSemicolon
+    \SetKwProg{myproc}{procedure}{}{}
+    \SetKwFunction{gw}{\(\mathtt{G_0W_0}\)}
+    \SetKwFunction{dft}{\texttt{DFT}}
+    \SetKwFunction{pregw}{\texttt{preGW}}
+
+    \myproc{\dft}{\tcp*[l]{Initial DFT calculation}
+      \Return{$\epsilon^{KS}[1:n], \phi^{KS}[1:n]$}}\textbf{end procedure}
+
+    \myproc{\pregw{$\epsilon^{KS}[1:n], \phi^{KS}[1:n]$}}{\tcp*[l]{Computes polarizability and dielectric function internally}
+      \Return{$\Sigma^{x}[1:n],  W_{0}^{c}[1:\omega]$}}\textbf{end procedure}
+
+    \myproc{\gw{$\epsilon^{KS}[1:n], \phi^{KS}[1:n], \Sigma^{x}[1:n], W_{0}^{c}[1:\omega]$}}{
+      \For{$s\gets1$ \KwTo $n$  $\quad$  \tcp{Loop over KS states} }{
+        \(\epsilon'_s \gets \epsilon^{KS}_s\) \;
+        \While{$\epsilon_s < \tau_{conv}$}{
+          \(\Sigma^c_s(\epsilon'_s) \gets \frac{i}{2\pi}\sum_s\int d\omega
+          \frac{\bra{ \phi^{KS}_s \phi^{KS}_m}W_{0}^{c}(\omega)\ket{ \phi^{KS}_m \phi^{KS}_s}}
+          {\epsilon'_s+\omega-\epsilon^{KS}_m \pm i\eta}\) \;
+          \(\epsilon_s \gets \epsilon^{KS}_s+ \Re(\Sigma^c_s(\epsilon'_s))+\Sigma^{x}_s-v_s^{xc}\) \(\quad\) \tcp{QP equation}
+        }
+        \(\epsilon'_s \gets \epsilon_s\) \;
+      }
+    }\textbf{end procedure}
+
+  \end{algorithm}
+
+  \end{document}
+#+end_src
 #+begin_export html
-<pre id="gwalg" style="display:hidden;">
-% This algorithm is inspired by the Figure 10 of Frontiers in chemistry 7 (2019): 377.
-\begin{algorithmic}
-\PROCEDURE{GW}{$\epsilon^{KS}[1:s], \phi^{KS}[1:s], \Sigma^{x}[1:s], W_{0}^{c}[1:\omega]$}
-\FOR{$s \in \{1:N\}$}
-\WHILE{$\Delta \epsilon < \text{THS}$ }
-\ENDWHILE
-\ENDFOR
-\ENDPROCEDURE
-\end{algorithmic}
-</pre>
-<script>
-    pseudocode.renderElement(document.getElementById("gwalg"), { indentSize: '1.0em' });
-</script> 
+<img src="./Figures/algo.svg" width="60%" style="border: 0px;">
 #+end_export
 ** The contour deformation approach for the self-energy
 
@@ -3501,7 +3572,6 @@ The {{{color(green, aims.out)}}} file
 ------------------------------------------------------------
 #+end_src
 *** Spectral function
-
 #+begin_export html
  <!-- <object data="./Figures/xps_h2o.pdf" type="application/pdf" width="750px" height="750px">
     <embed src="./Figures/xps_h2o.pdf" type="application/pdf">
@@ -3513,26 +3583,27 @@ The {{{color(green, aims.out)}}} file
 #+end_export
 
 * Learning resources
-
 ** Publications and textbooks
 
 #+begin_export html
 <table cellspacing="0" cellpadding="0" rules=none>
     <tbody>
         <td>
-        <a href="https://www.frontiersin.org/articles/10.3389/fchem.2019.00377/full">
+        <a href="https://www.frontiersin.org/articles/10.3389/fchem.2019.00377/full" target="_blank">
         <img alt="Qries" src="./Figures/golze.png" width="150" height="225"></a>
         </td>
         <td>
-        <a href="https://link.springer.com/book/10.1007/978-3-319-93602-4">
+        <a href="https://link.springer.com/book/10.1007/978-3-319-93602-4" target="_blank">
         <img alt="Qries" src="./Figures/jochen.png" width="150" height="225"></a>
         </td>
         <td>
-        <a href="https://www.cambridge.org/core/books/interacting-electrons/4317C43D0531C900920E83DD4632CFE9#">
+        <a href="https://www.cambridge.org/core/books/interacting-electrons/4317C43D0531C900920E83DD4632CFE9#"
+        target="_blank">
         <img alt="Qries" src="./Figures/reigning.jpg" width="150" height="225"></a>
         </td>
         <td>
-        <a href="https://books.google.de/books/about/Many_Particle_Theory.html?hl=de&id=F6VfQgAACAAJ&redir_esc=y">
+        <a href="https://books.google.de/books/about/Many_Particle_Theory.html?hl=de&id=F6VfQgAACAAJ&redir_esc=y"
+        target="_blank">
         <img alt="Qries" src="./Figures/gross.jpg" width="150" height="225"></a>
         </td>
     </tbody>
@@ -3568,11 +3639,36 @@ width="900" height="500"></iframe>
 #+begin_export html
 <h1>Thank you very much</h1>
 <br>
-<a href="https://github.com/Panadestein/gw_talk"><p>Slides source on GitHub</p></a>
+<a href="https://github.com/Panadestein/gw_talk" target="_blank"><p>Slides source on GitHub</p></a>
 <img src="./Figures/en.jpg" width="17%" style="padding: 29px; border: 0px;">
 <img src="./Figures/aims.png" width="25%" style="padding: 29px; border: 0px;">
 <img src="./Figures/tub.png" width="25%" style="padding: 29px; border: 0px;">
 #+end_export
+
+* Schwinger's functional derivative method
+:PROPERTIES:
+:UNNUMBERED: notoc
+:END:
+#+BEGIN_NOTES
+The use of functional derivatives has of course resemblance to DFT, in a loose way
+It makes use of the so-called generalize Green's function, takes its functional derivative
+does a bunch of algebra and ends up with the Hedin's equations
+IMPORTANT: the field operators are in Dirac (or interaction) representation here
+#+END_NOTES
+
+Define a generalized single-particle Green's function dependent of a probe field $\varphi$, analyze its linear
+response with respect to the latter, and do a lot of [[https://link.springer.com/article/10.1007/BF02725962][algebra]].
+\begin{equation*}
+iG(1,2)=\frac{\langle\Psi |T[\hat{S}\hat{\psi}_D(1)\hat{\psi}_D(2)]| \Psi\rangle}{\langle\Psi|\hat{S}|\Psi\rangle}
+\end{equation*}
+\begin{equation*}
+\hat{S} = T\exp{-i\int_{-\infty}^{+\infty} dt \int dr\, \hat{\rho}(r,t)\varphi(r,t)}
+\end{equation*}
+Taking the functional derivative of $G(1,2)$ eventually leads to the Dyson equation, defining several
+quantities on the way:
+\begin{equation*}
+\frac{\delta G(1,2)}{\delta\varphi(3)} = G(1,2)\rho(3)-G^{(2)}(1,2,3,3^+)
+\end{equation*}
 
 * COMMENT This section ensures revealjs publishing when saving
 

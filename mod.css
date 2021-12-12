@@ -14,6 +14,7 @@ reveal, .reveal div {
 }
 
 .reveal h2 {
+  color: #073642;
   font-size: 39pt;
 }
 
@@ -55,12 +56,6 @@ reveal, .reveal div {
   border: 1px solid #000;
 }
 
-.reveal pre {
-  float: left;
-  left: 0;
-  display: block;
-  position: static;
-  width: 90%;
-  text-align: left;
-  word-wrap: normal;
+.reveal .MathJax {
+  font-size: 0.6em;
 }
