@@ -12,7 +12,7 @@
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_THEME: serif
 #+REVEAL_INIT_OPTIONS: transition:'convex'
-#+REVEAL_PLUGINS: (highlight notes)
+#+REVEAL_PLUGINS: (notes)
 #+REVEAL_EXTRA_CSS: ./mod.css
 #+REVEAL_REVEAL_JS_VERSION: 4
 #+REVEAL_TITLE_SLIDE: <h1 class="title">%t</h1>
@@ -72,7 +72,7 @@ Beware that the numbers are a convenient abbreviation 1 -> (r_1, t_1)
 #+end_src
 
 #+begin_export html
-<p style="text-justify: auto;">
+<p style="text-justify: auto; font-size: 70%">
 GW is an approximation to an exact set of integro-differential equations
 (<a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.139.A796">Hedin's equations</a>). The latter
 can be derived using a diagrammatic approach, or alternatively the Schwinger's functional derivative technique.
@@ -93,7 +93,31 @@ can be derived using a diagrammatic approach, or alternatively the Schwinger's f
 
 * Practical GW calculations
 ** Quasiparticle equation
-GW typically scales as $O(N^4)$, we are working on reducing the scaling to $O(N^3)$
+#+BEGIN_NOTES
+Practical GW calculations usually start from a DFT calculation
+#+END_NOTES
+Starting from Dyson's equation in differential form:
+\begin{equation*}
+[i\hbar\frac{\partial}{\partial t_1} - h(1)]G(1,2)-\int d3\Sigma(1,3)G(3,2)=\delta(1,2)
+\end{equation*}
+Taking the Fourier transform to the energy domain and using the eigenvalue expansion of the Green's function:
+
+#+ATTR_HTML: :class r-stack
+#+BEGIN_DIV
+#+ATTR_REVEAL: :frag fade-out :frag_idx 1
+\begin{equation*}
+[-\omega -h(r_1)]G(r_1,r_2;\omega)-\int dr_3\Sigma(r_1,r_3;\omega)G(r_3,r_2;\omega) = \delta(r_1-r_2)
+\end{equation*}
+#+ATTR_REVEAL: :frag fade-in-then-out :frag_idx 1
+\begin{equation*}
+G(r_1,r_2;\omega) = \sum_s \frac{\phi_{s\sigma}^0(r_1)\phi_{s\sigma}^{0*}(r_2)}
+{\omega-\epsilon^{0}_{s\sigma}-i\eta\text{sgn}(E_F-\epsilon^0_{s\sigma})}
+\end{equation*}
+#+ATTR_REVEAL: :frag appear :frag_idx 2
+\begin{equation*}
+h(r_1)\phi_{s\sigma}(r_1) -\int dr_3\Sigma(r_1,r_3)\phi_{s\sigma}(r_3) = \phi_{s\sigma}(r_1)\epsilon_{s\sigma}
+\end{equation*}
+#+END_DIV
 ** Typical G_{0}W_{0} algorithm
 #+begin_src latex :exports none
   \documentclass{article}
@@ -142,7 +166,43 @@ GW typically scales as $O(N^4)$, we are working on reducing the scaling to $O(N^
 #+begin_export html
 <img src="./Figures/algo.svg" width="60%" style="border: 0px;">
 #+end_export
+#+ATTR_HTML: :style font-size: 60%
+GW typically scales as $\color{red}{\mathbf{O(N^4)}}$, we are working on
+reducing the scaling to $\color{green}{\mathbf{O(N^3)}}$
 ** The contour deformation approach for the self-energy
+
+#+begin_src latex :exports none
+\begin{equation*}
+\frac{i}{2\pi}\oint d\omega' G_0(\omega+\omega')W_0(\omega')=\int_{\Re}+
+\int_{\Im}+\int_{D_{\Gamma^+}}+\int_{D_{\Gamma^-}}
+\end{equation*}
+\begin{align*}
+\Sigma(\mathbf{r},\mathbf{r}',\omega) & = \frac{i}{2\pi}\oint d\omega'
+G_{0}(\mathbf{r},\mathbf{r}',\omega+\omega')W_{0}(\mathbf{r},\mathbf{r}',\omega')}\\
+& -\frac{1}{2\pi}\int_{-\infty}^{+\infty}d\omega'G_{0}(\mathbf{r},\mathbf{r}',\omega+i\omega')
+W_{0}(\mathbf{r},\mathbf{r}',i\omega')
+\end{align*}
+#+end_src
+
+#+begin_export html
+<p style="font-size: 70%;">
+A clever application of <a href="https://en.wikipedia.org/wiki/Jordan%27s_lemma">Jordan's Lemma</a> and
+<a href="https://en.wikipedia.org/wiki/Residue_theorem">Cauchy's residue theorem</a>.
+Integral self-energy expression is a consequence of
+the <a href="https://en.wikipedia.org/wiki/Convolution_theorem">Convolution theorem</a>.
+</p>
+#+end_export
+
+#+begin_export html
+<img src="./Figures/cd_mine.svg" width="45%" style="border: 0px; float: left;">
+<img src="./Figures/cd_eq.svg" width="45%" style="border: 0px; float: right; margin-top: 75px;">
+#+end_export
+
+#+begin_export html
+<p style="font-size: 40%; clear: both;">
+<a href="https://pubs.acs.org/doi/10.1021/acs.jctc.8b00458" target="_blank">
+Golze et al. JCTC 14.9 (2018)</a></p>
+#+end_export
 
 * Example application to core level spectroscopy
 ** FHI-aims implementation of GW-based methods
@@ -3645,7 +3705,7 @@ width="900" height="500"></iframe>
 <img src="./Figures/tub.png" width="25%" style="padding: 29px; border: 0px;">
 #+end_export
 
-* Schwinger's functional derivative method
+** Schwinger's functional derivative method
 :PROPERTIES:
 :UNNUMBERED: notoc
 :END:
@@ -3662,7 +3722,7 @@ response with respect to the latter, and do a lot of [[https://link.springer.com
 iG(1,2)=\frac{\langle\Psi |T[\hat{S}\hat{\psi}_D(1)\hat{\psi}_D(2)]| \Psi\rangle}{\langle\Psi|\hat{S}|\Psi\rangle}
 \end{equation*}
 \begin{equation*}
-\hat{S} = T\exp{-i\int_{-\infty}^{+\infty} dt \int dr\, \hat{\rho}(r,t)\varphi(r,t)}
+\hat{S} = T\exp{\Big\{-i\int_{-\infty}^{+\infty} dt \int dr\, \hat{\rho}(r,t)\varphi(r,t)\Big\}}
 \end{equation*}
 Taking the functional derivative of $G(1,2)$ eventually leads to the Dyson equation, defining several
 quantities on the way:

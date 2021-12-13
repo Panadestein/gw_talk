@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/serif.css" id="theme"/>
 
 <link rel="stylesheet" href="./mod.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/lib/css/zenburn.css"/><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <base target="_blank">
 </head>
 <body>
@@ -27,23 +27,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-orgd6c1d45">Why is it called GW anyway?</a></li>
-<li><a href="#/slide-org112c38f">Practical GW calculations</a></li>
-<li><a href="#/slide-orgcb00bde">Example application to core level spectroscopy</a></li>
-<li><a href="#/slide-org7950cbe">Learning resources</a></li>
+<li><a href="#/slide-org40ec41a">Why is it called GW anyway?</a></li>
+<li><a href="#/slide-orga22e770">Practical GW calculations</a></li>
+<li><a href="#/slide-org8de344c">Example application to core level spectroscopy</a></li>
+<li><a href="#/slide-orgcbfe2d1">Learning resources</a></li>
 </ul>
 </div>
 </div>
 </section>
 
 <section>
-<section id="slide-orgd6c1d45">
-<h2 id="orgd6c1d45">Why is it called GW anyway?</h2>
-<div class="outline-text-2" id="text-orgd6c1d45">
+<section id="slide-org40ec41a">
+<h2 id="org40ec41a">Why is it called GW anyway?</h2>
+<div class="outline-text-2" id="text-org40ec41a">
 </div>
 </section>
-<section id="slide-org41bbbf6">
-<h3 id="org41bbbf6">GW in a nutshell</h3>
+<section id="slide-org09b2176">
+<h3 id="org09b2176">GW in a nutshell</h3>
 <aside class="notes">
 <p>
 There is a family of GW methods, the simplest one is the single-shot GoWo
@@ -71,8 +71,8 @@ The main object in the method is the one-particle Green's function:
 
 </ul>
 </section>
-<section id="slide-orgc0028a2">
-<h3 id="orgc0028a2">Derivation</h3>
+<section id="slide-orgac6bddc">
+<h3 id="orgac6bddc">Derivation</h3>
 <aside class="notes">
 <p>
 The functional derivative method was developed by Schwinger. The Hedin's equations
@@ -81,7 +81,7 @@ Beware that the numbers are a convenient abbreviation 1 -&gt; (r<sub>1</sub>, t<
 </p>
 
 </aside>
-<p style="text-justify: auto;">
+<p style="text-justify: auto; font-size: 70%">
 GW is an approximation to an exact set of integro-differential equations
 (<a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.139.A796">Hedin's equations</a>). The latter
 can be derived using a diagrammatic approach, or alternatively the Schwinger's functional derivative technique.
@@ -92,8 +92,8 @@ can be derived using a diagrammatic approach, or alternatively the Schwinger's f
 <a href="https://www.frontiersin.org/articles/10.3389/fchem.2019.00377/full" target="_blank">GW compendium</a></p>
 
 </section>
-<section id="slide-orga0d2d2c">
-<h3 id="orga0d2d2c">From Hedin's equations to GW</h3>
+<section id="slide-orga64d6a0">
+<h3 id="orga64d6a0">From Hedin's equations to GW</h3>
 <img src="./Figures/hedin_pentagon.svg" width="30%" style="border: 0px;">
 <img class="fragment" data-fragment-index="1" src="./Figures/gw_pentagon.svg" width="45%" style="border: 0px;">
 <p class="fragment" data-fragment-index="1" style="font-size: 40%">Images from
@@ -102,62 +102,117 @@ can be derived using a diagrammatic approach, or alternatively the Schwinger's f
 </section>
 </section>
 <section>
-<section id="slide-org112c38f">
-<h2 id="org112c38f">Practical GW calculations</h2>
-<div class="outline-text-2" id="text-org112c38f">
+<section id="slide-orga22e770">
+<h2 id="orga22e770">Practical GW calculations</h2>
+<div class="outline-text-2" id="text-orga22e770">
 </div>
 </section>
-<section id="slide-orgb9be814">
-<h3 id="orgb9be814">Quasiparticle equation</h3>
+<section id="slide-org15769df">
+<h3 id="org15769df">Quasiparticle equation</h3>
+<aside class="notes">
 <p>
-GW typically scales as \(O(N^4)\), we are working on reducing the scaling to \(O(N^3)\)
+Practical GW calculations usually start from a DFT calculation
+</p>
+
+</aside>
+<p>
+Starting from Dyson's equation in differential form:
+</p>
+<div>
+\begin{equation*}
+[i\hbar\frac{\partial}{\partial t_1} - h(1)]G(1,2)-\int d3\Sigma(1,3)G(3,2)=\delta(1,2)
+\end{equation*}
+
+</div>
+<p>
+Taking the Fourier transform to the energy domain and using the eigenvalue expansion of the Green's function:
+</p>
+
+<div class="r-stack DIV" id="orgd27fbb2">
+<div data-fragment-index="1" class="fragment fade-out">
+\begin{equation*}
+[-\omega -h(r_1)]G(r_1,r_2;\omega)-\int dr_3\Sigma(r_1,r_3;\omega)G(r_3,r_2;\omega) = \delta(r_1-r_2)
+\end{equation*}
+
+</div>
+<div data-fragment-index="1" class="fragment fade-in-then-out">
+\begin{equation*}
+G(r_1,r_2;\omega) = \sum_s \frac{\phi_{s\sigma}^0(r_1)\phi_{s\sigma}^{0*}(r_2)}
+{\omega-\epsilon^{0}_{s\sigma}-i\eta\text{sgn}(E_F-\epsilon^0_{s\sigma})}
+\end{equation*}
+
+</div>
+<div data-fragment-index="2" class="fragment appear">
+\begin{equation*}
+h(r_1)\phi_{s\sigma}(r_1) -\int dr_3\Sigma(r_1,r_3)\phi_{s\sigma}(r_3) = \phi_{s\sigma}(r_1)\epsilon_{s\sigma}
+\end{equation*}
+
+</div>
+
+</div>
+</section>
+<section id="slide-org2c49a15">
+<h3 id="org2c49a15">Typical G<sub>0</sub>W<sub>0</sub> algorithm</h3>
+<img src="./Figures/algo.svg" width="60%" style="border: 0px;">
+<p style="font-size: 60%">
+GW typically scales as \(\color{red}{\mathbf{O(N^4)}}\), we are working on
+reducing the scaling to \(\color{green}{\mathbf{O(N^3)}}\)
 </p>
 </section>
-<section id="slide-org5432994">
-<h3 id="org5432994">Typical G<sub>0</sub>W<sub>0</sub> algorithm</h3>
-<img src="./Figures/algo.svg" width="60%" style="border: 0px;">
-</section>
-<section id="slide-orge578990">
-<h3 id="orge578990">The contour deformation approach for the self-energy</h3>
+<section id="slide-org0077de1">
+<h3 id="org0077de1">The contour deformation approach for the self-energy</h3>
+<p style="font-size: 70%;">
+A clever application of <a href="https://en.wikipedia.org/wiki/Jordan%27s_lemma">Jordan's Lemma</a> and
+<a href="https://en.wikipedia.org/wiki/Residue_theorem">Cauchy's residue theorem</a>.
+Integral self-energy expression is a consequence of
+the <a href="https://en.wikipedia.org/wiki/Convolution_theorem">Convolution theorem</a>.
+</p>
+
+<img src="./Figures/cd_mine.svg" width="45%" style="border: 0px; float: left;">
+<img src="./Figures/cd_eq.svg" width="45%" style="border: 0px; float: right; margin-top: 75px;">
+
+<p style="font-size: 40%; clear: both;">
+<a href="https://pubs.acs.org/doi/10.1021/acs.jctc.8b00458" target="_blank">
+Golze et al. JCTC 14.9 (2018)</a></p>
 
 </section>
 </section>
 <section>
-<section id="slide-orgcb00bde">
-<h2 id="orgcb00bde">Example application to core level spectroscopy</h2>
-<div class="outline-text-2" id="text-orgcb00bde">
+<section id="slide-org8de344c">
+<h2 id="org8de344c">Example application to core level spectroscopy</h2>
+<div class="outline-text-2" id="text-org8de344c">
 </div>
 </section>
-<section id="slide-org7127e98">
-<h3 id="org7127e98">FHI-aims implementation of GW-based methods</h3>
+<section id="slide-org29bd030">
+<h3 id="org29bd030">FHI-aims implementation of GW-based methods</h3>
 </section>
-<section id="slide-orgeb73692">
-<h3 id="orgeb73692">Computation of the spectral function of the H<sub>2</sub>O 1s orbital</h3>
+<section id="slide-orgf1d5ac0">
+<h3 id="orgf1d5ac0">Computation of the spectral function of the H<sub>2</sub>O 1s orbital</h3>
 <p>
 Some text here
 </p>
 </section>
-<section id="slide-orgf005d09">
-<h4 id="orgf005d09"></h4>
+<section id="slide-org96de119">
+<h4 id="org96de119"></h4>
 <p>
 The <font color="green"> geometry.in</font> file
 </p>
 <div class="org-src-container">
 
-<pre   ><code class="example" >atom         0.00000000       -0.00000000       -0.00614048  O
+<pre  class="src src-example"   ><code trim>atom         0.00000000       -0.00000000       -0.00614048  O
 atom         0.76443318       -0.00000000        0.58917024  H
 atom        -0.76443318        0.00000000        0.58917024  H
 </code></pre>
 </div>
 </section>
-<section id="slide-orgdc7e006">
-<h4 id="orgdc7e006"></h4>
+<section id="slide-orgb265000">
+<h4 id="orgb265000"></h4>
 <p>
 The <font color="green"> control.in</font> file
 </p>
 <div class="org-src-container">
 
-<pre   ><code class="example" >####################################################
+<pre  class="src src-example"   ><code trim>####################################################
 #             H2O molecule calculation
 # Using def2-QVPZ basis for light and heavy elements
 ####################################################
@@ -352,14 +407,14 @@ The <font color="green"> control.in</font> file
 </code></pre>
 </div>
 </section>
-<section id="slide-org1d124a3">
-<h4 id="org1d124a3"></h4>
+<section id="slide-orgd9a3730">
+<h4 id="orgd9a3730"></h4>
 <p>
 The <font color="green"> aims.out</font> file
 </p>
 <div class="org-src-container">
 
-<pre   ><code class="example" >------------------------------------------------------------
+<pre  class="src src-example"   ><code trim>------------------------------------------------------------
 	  Invoking FHI-aims ...
 
 	  When using FHI-aims, please cite the following reference:
@@ -3578,8 +3633,8 @@ The <font color="green"> aims.out</font> file
 </code></pre>
 </div>
 </section>
-<section id="slide-org0e37723">
-<h4 id="org0e37723">Spectral function</h4>
+<section id="slide-orge0fcddf">
+<h4 id="orge0fcddf">Spectral function</h4>
  <!-- <object data="./Figures/xps_h2o.pdf" type="application/pdf" width="750px" height="750px">
     <embed src="./Figures/xps_h2o.pdf" type="application/pdf">
         <p>This browser does not support PDF viewing, but you can download the file
@@ -3591,13 +3646,13 @@ The <font color="green"> aims.out</font> file
 </section>
 </section>
 <section>
-<section id="slide-org7950cbe">
-<h2 id="org7950cbe">Learning resources</h2>
-<div class="outline-text-2" id="text-org7950cbe">
+<section id="slide-orgcbfe2d1">
+<h2 id="orgcbfe2d1">Learning resources</h2>
+<div class="outline-text-2" id="text-orgcbfe2d1">
 </div>
 </section>
-<section id="slide-orgeb1e001">
-<h3 id="orgeb1e001">Publications and textbooks</h3>
+<section id="slide-org7b23e73">
+<h3 id="org7b23e73">Publications and textbooks</h3>
 <table cellspacing="0" cellpadding="0" rules=none>
     <tbody>
         <td>
@@ -3622,8 +3677,8 @@ The <font color="green"> aims.out</font> file
 </table>
 
 </section>
-<section id="slide-org6a552b7">
-<h3 id="org6a552b7">Video tutorials</h3>
+<section id="slide-org9495d89">
+<h3 id="org9495d89">Video tutorials</h3>
 <iframe width="336" height="189" src="https://www.youtube.com/embed/Kf6cY0PA8Sw"
  title="GW Golze" frameborder="0" allow="accelerometer; autoplay;
  clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -3638,16 +3693,16 @@ title="Large Scale" frameborder="0" allow="accelerometer; autoplay;
  clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </section>
-<section id="slide-org0da486c">
-<h3 id="org0da486c">FHI-aims tutorial series</h3>
+<section id="slide-orgdfcceb1">
+<h3 id="orgdfcceb1">FHI-aims tutorial series</h3>
 <iframe src="https://fhi-aims-club.gitlab.io/tutorials/rpa-and-gw-for-molecules-and-solids/"
 width="900" height="500"></iframe>
 
 </section>
 </section>
 <section>
-<section id="slide-org2752a54">
-<h2 id="org2752a54"></h2>
+<section id="slide-orgef768ac">
+<h2 id="orgef768ac"></h2>
 <h1>Thank you very much</h1>
 <br>
 <a href="https://github.com/Panadestein/gw_talk" target="_blank"><p>Slides source on GitHub</p></a>
@@ -3656,10 +3711,8 @@ width="900" height="500"></iframe>
 <img src="./Figures/tub.png" width="25%" style="padding: 29px; border: 0px;">
 
 </section>
-</section>
-<section>
-<section id="slide-org0fe2d7f">
-<h2 id="org0fe2d7f">Schwinger's functional derivative method</h2>
+<section id="slide-org7eb901a">
+<h3 id="org7eb901a">Schwinger's functional derivative method</h3>
 <aside class="notes">
 <p>
 The use of functional derivatives has of course resemblance to DFT, in a loose way
@@ -3682,7 +3735,7 @@ iG(1,2)=\frac{\langle\Psi |T[\hat{S}\hat{\psi}_D(1)\hat{\psi}_D(2)]| \Psi\rangle
 </div>
 <div>
 \begin{equation*}
-\hat{S} = T\exp{-i\int_{-\infty}^{+\infty} dt \int dr\, \hat{\rho}(r,t)\varphi(r,t)}
+\hat{S} = T\exp{\Big\{-i\int_{-\infty}^{+\infty} dt \int dr\, \hat{\rho}(r,t)\varphi(r,t)\Big\}}
 \end{equation*}
 
 </div>
@@ -3701,7 +3754,6 @@ quantities on the way:
 </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/highlight/highlight.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js"></script>
 
 
@@ -3709,7 +3761,7 @@ quantities on the way:
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize({
-plugins: [RevealHighlight, RevealNotes],
+plugins: [RevealNotes],
 transition:'convex'
 });
 
