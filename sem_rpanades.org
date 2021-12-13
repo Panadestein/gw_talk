@@ -75,7 +75,8 @@ Beware that the numbers are a convenient abbreviation 1 -> (r_1, t_1)
 <p style="text-justify: auto; font-size: 70%">
 GW is an approximation to an exact set of integro-differential equations
 (<a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.139.A796">Hedin's equations</a>). The latter
-can be derived using a diagrammatic approach, or alternatively the Schwinger's functional derivative technique.
+can be derived using a diagrammatic approach, or alternatively the
+<a href="#/slide-funcder">Schwinger's</a> functional derivative technique.
 </p>
 <img src="./Figures/gweq.svg" width="35%" style="padding: 29px; border: 0px;">
 <img src="./Figures/hedin_eqs.jpg" width="30%" style="padding: 29px; border: 0px;">
@@ -205,9 +206,47 @@ Golze et al. JCTC 14.9 (2018)</a></p>
 #+end_export
 
 * Example application to core level spectroscopy
-** FHI-aims implementation of GW-based methods
+** Software packages implementing GW methods
+#+begin_export html
+<table style="margin-left: 20%; margin-right:auto;">
+    <tbody>
+        <td>
+        <a href="https://www.abinit.org/">
+         <img src="./Figures/abinit.svg" width="20%" style="padding: 15px; border: 0px;"></a>
+        <a href="https://berkeleygw.org/">
+         <img src="./Figures/bgw.png" width="23%" style="padding: 15px; border: 0px;"></a>
+        <a href="http://perso.neel.cnrs.fr/xavier.blase/fiesta/">
+         <img src="./Figures/logofiesta.png" width="13%" style="padding: 15px; border: 0px;"></a>
+        </td>
+    <tbody>
+</table>
+
+<table style="margin-left: 20%; margin-right:auto;">
+    <tbody>
+        <td>
+        <a href="https://vasp.at/">
+         <img src="./Figures/vasp.png" width="15%" style="padding: 15px; border: 0px;"></a>
+        <a href="https://aims-web.rz-berlin.mpg.de/">
+         <img src="./Figures/aims.png" width="27%" style="padding: 15px; border: 0px;"></a>
+        <a href="https://www.cp2k.org/">
+         <img src="./Figures/cp2k.png" width="15%" style="padding: 15px; border: 0px;"></a>
+        </td>
+    <tbody>
+</table>
+#+end_export
+
+#+begin_export html
+<p style="font-size: 60%">
+See Table 1 in the <a href="https://www.frontiersin.org/articles/10.3389/fchem.2019.00377/full">
+GW compendium</a> for a complete list
+</p>
+#+end_export
+
 ** Computation of the spectral function of the H_{2}O 1s orbital
-Some text here
+- Showcase FHI-aims workflow with a small application
+- The contour deformation technique has a larger scaling for
+  core levels $O(N^5)$ due to the number of residues
+- Description of satellite structure is expensive due to spectral function
 *** 
 The {{{color(green, geometry.in)}}} file
 #+begin_src example
@@ -3707,6 +3746,7 @@ width="900" height="500"></iframe>
 
 ** Schwinger's functional derivative method
 :PROPERTIES:
+:CUSTOM_ID: funcder
 :UNNUMBERED: notoc
 :END:
 #+BEGIN_NOTES

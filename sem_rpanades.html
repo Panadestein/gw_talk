@@ -27,23 +27,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#/slide-org40ec41a">Why is it called GW anyway?</a></li>
-<li><a href="#/slide-orga22e770">Practical GW calculations</a></li>
-<li><a href="#/slide-org8de344c">Example application to core level spectroscopy</a></li>
-<li><a href="#/slide-orgcbfe2d1">Learning resources</a></li>
+<li><a href="#/slide-orgf02a130">Why is it called GW anyway?</a></li>
+<li><a href="#/slide-org1d59d3a">Practical GW calculations</a></li>
+<li><a href="#/slide-org1ed2ff4">Example application to core level spectroscopy</a></li>
+<li><a href="#/slide-org11296f4">Learning resources</a></li>
 </ul>
 </div>
 </div>
 </section>
 
 <section>
-<section id="slide-org40ec41a">
-<h2 id="org40ec41a">Why is it called GW anyway?</h2>
-<div class="outline-text-2" id="text-org40ec41a">
+<section id="slide-orgf02a130">
+<h2 id="orgf02a130">Why is it called GW anyway?</h2>
+<div class="outline-text-2" id="text-orgf02a130">
 </div>
 </section>
-<section id="slide-org09b2176">
-<h3 id="org09b2176">GW in a nutshell</h3>
+<section id="slide-org02bf56f">
+<h3 id="org02bf56f">GW in a nutshell</h3>
 <aside class="notes">
 <p>
 There is a family of GW methods, the simplest one is the single-shot GoWo
@@ -71,8 +71,8 @@ The main object in the method is the one-particle Green's function:
 
 </ul>
 </section>
-<section id="slide-orgac6bddc">
-<h3 id="orgac6bddc">Derivation</h3>
+<section id="slide-org451a5ee">
+<h3 id="org451a5ee">Derivation</h3>
 <aside class="notes">
 <p>
 The functional derivative method was developed by Schwinger. The Hedin's equations
@@ -84,7 +84,8 @@ Beware that the numbers are a convenient abbreviation 1 -&gt; (r<sub>1</sub>, t<
 <p style="text-justify: auto; font-size: 70%">
 GW is an approximation to an exact set of integro-differential equations
 (<a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.139.A796">Hedin's equations</a>). The latter
-can be derived using a diagrammatic approach, or alternatively the Schwinger's functional derivative technique.
+can be derived using a diagrammatic approach, or alternatively the
+<a href="#/slide-funcder">Schwinger's</a> functional derivative technique.
 </p>
 <img src="./Figures/gweq.svg" width="35%" style="padding: 29px; border: 0px;">
 <img src="./Figures/hedin_eqs.jpg" width="30%" style="padding: 29px; border: 0px;">
@@ -92,8 +93,8 @@ can be derived using a diagrammatic approach, or alternatively the Schwinger's f
 <a href="https://www.frontiersin.org/articles/10.3389/fchem.2019.00377/full" target="_blank">GW compendium</a></p>
 
 </section>
-<section id="slide-orga64d6a0">
-<h3 id="orga64d6a0">From Hedin's equations to GW</h3>
+<section id="slide-org70c9cb0">
+<h3 id="org70c9cb0">From Hedin's equations to GW</h3>
 <img src="./Figures/hedin_pentagon.svg" width="30%" style="border: 0px;">
 <img class="fragment" data-fragment-index="1" src="./Figures/gw_pentagon.svg" width="45%" style="border: 0px;">
 <p class="fragment" data-fragment-index="1" style="font-size: 40%">Images from
@@ -102,13 +103,13 @@ can be derived using a diagrammatic approach, or alternatively the Schwinger's f
 </section>
 </section>
 <section>
-<section id="slide-orga22e770">
-<h2 id="orga22e770">Practical GW calculations</h2>
-<div class="outline-text-2" id="text-orga22e770">
+<section id="slide-org1d59d3a">
+<h2 id="org1d59d3a">Practical GW calculations</h2>
+<div class="outline-text-2" id="text-org1d59d3a">
 </div>
 </section>
-<section id="slide-org15769df">
-<h3 id="org15769df">Quasiparticle equation</h3>
+<section id="slide-orgeb4bcba">
+<h3 id="orgeb4bcba">Quasiparticle equation</h3>
 <aside class="notes">
 <p>
 Practical GW calculations usually start from a DFT calculation
@@ -128,7 +129,7 @@ Starting from Dyson's equation in differential form:
 Taking the Fourier transform to the energy domain and using the eigenvalue expansion of the Green's function:
 </p>
 
-<div class="r-stack DIV" id="orgd27fbb2">
+<div class="r-stack DIV" id="orgeac91a7">
 <div data-fragment-index="1" class="fragment fade-out">
 \begin{equation*}
 [-\omega -h(r_1)]G(r_1,r_2;\omega)-\int dr_3\Sigma(r_1,r_3;\omega)G(r_3,r_2;\omega) = \delta(r_1-r_2)
@@ -151,16 +152,16 @@ h(r_1)\phi_{s\sigma}(r_1) -\int dr_3\Sigma(r_1,r_3)\phi_{s\sigma}(r_3) = \phi_{s
 
 </div>
 </section>
-<section id="slide-org2c49a15">
-<h3 id="org2c49a15">Typical G<sub>0</sub>W<sub>0</sub> algorithm</h3>
+<section id="slide-orgb383417">
+<h3 id="orgb383417">Typical G<sub>0</sub>W<sub>0</sub> algorithm</h3>
 <img src="./Figures/algo.svg" width="60%" style="border: 0px;">
 <p style="font-size: 60%">
 GW typically scales as \(\color{red}{\mathbf{O(N^4)}}\), we are working on
 reducing the scaling to \(\color{green}{\mathbf{O(N^3)}}\)
 </p>
 </section>
-<section id="slide-org0077de1">
-<h3 id="org0077de1">The contour deformation approach for the self-energy</h3>
+<section id="slide-org9e16b3c">
+<h3 id="org9e16b3c">The contour deformation approach for the self-energy</h3>
 <p style="font-size: 70%;">
 A clever application of <a href="https://en.wikipedia.org/wiki/Jordan%27s_lemma">Jordan's Lemma</a> and
 <a href="https://en.wikipedia.org/wiki/Residue_theorem">Cauchy's residue theorem</a>.
@@ -178,22 +179,57 @@ Golze et al. JCTC 14.9 (2018)</a></p>
 </section>
 </section>
 <section>
-<section id="slide-org8de344c">
-<h2 id="org8de344c">Example application to core level spectroscopy</h2>
-<div class="outline-text-2" id="text-org8de344c">
+<section id="slide-org1ed2ff4">
+<h2 id="org1ed2ff4">Example application to core level spectroscopy</h2>
+<div class="outline-text-2" id="text-org1ed2ff4">
 </div>
 </section>
-<section id="slide-org29bd030">
-<h3 id="org29bd030">FHI-aims implementation of GW-based methods</h3>
-</section>
-<section id="slide-orgf1d5ac0">
-<h3 id="orgf1d5ac0">Computation of the spectral function of the H<sub>2</sub>O 1s orbital</h3>
-<p>
-Some text here
+<section id="slide-org0df8baf">
+<h3 id="org0df8baf">Software packages implementing GW methods</h3>
+<table style="margin-left: 20%; margin-right:auto;">
+    <tbody>
+        <td>
+        <a href="https://www.abinit.org/">
+         <img src="./Figures/abinit.svg" width="20%" style="padding: 15px; border: 0px;"></a>
+        <a href="https://berkeleygw.org/">
+         <img src="./Figures/bgw.png" width="23%" style="padding: 15px; border: 0px;"></a>
+        <a href="http://perso.neel.cnrs.fr/xavier.blase/fiesta/">
+         <img src="./Figures/logofiesta.png" width="13%" style="padding: 15px; border: 0px;"></a>
+        </td>
+    <tbody>
+</table>
+
+<table style="margin-left: 20%; margin-right:auto;">
+    <tbody>
+        <td>
+        <a href="https://vasp.at/">
+         <img src="./Figures/vasp.png" width="15%" style="padding: 15px; border: 0px;"></a>
+        <a href="https://aims-web.rz-berlin.mpg.de/">
+         <img src="./Figures/aims.png" width="27%" style="padding: 15px; border: 0px;"></a>
+        <a href="https://www.cp2k.org/">
+         <img src="./Figures/cp2k.png" width="15%" style="padding: 15px; border: 0px;"></a>
+        </td>
+    <tbody>
+</table>
+
+<p style="font-size: 60%">
+See Table 1 in the <a href="https://www.frontiersin.org/articles/10.3389/fchem.2019.00377/full">
+GW compendium</a> for a complete list
 </p>
+
 </section>
-<section id="slide-org96de119">
-<h4 id="org96de119"></h4>
+<section id="slide-org0a5c7f5">
+<h3 id="org0a5c7f5">Computation of the spectral function of the H<sub>2</sub>O 1s orbital</h3>
+<ul>
+<li>Showcase FHI-aims workflow with a small application</li>
+<li>The contour deformation technique has a larger scaling for
+core levels \(O(N^5)\) due to the number of residues</li>
+<li>Description of satellite structure is expensive due to spectral function</li>
+
+</ul>
+</section>
+<section id="slide-orgd353747">
+<h4 id="orgd353747"></h4>
 <p>
 The <font color="green"> geometry.in</font> file
 </p>
@@ -205,8 +241,8 @@ atom        -0.76443318        0.00000000        0.58917024  H
 </code></pre>
 </div>
 </section>
-<section id="slide-orgb265000">
-<h4 id="orgb265000"></h4>
+<section id="slide-orgeb0b87a">
+<h4 id="orgeb0b87a"></h4>
 <p>
 The <font color="green"> control.in</font> file
 </p>
@@ -407,8 +443,8 @@ The <font color="green"> control.in</font> file
 </code></pre>
 </div>
 </section>
-<section id="slide-orgd9a3730">
-<h4 id="orgd9a3730"></h4>
+<section id="slide-org769fa16">
+<h4 id="org769fa16"></h4>
 <p>
 The <font color="green"> aims.out</font> file
 </p>
@@ -3633,8 +3669,8 @@ The <font color="green"> aims.out</font> file
 </code></pre>
 </div>
 </section>
-<section id="slide-orge0fcddf">
-<h4 id="orge0fcddf">Spectral function</h4>
+<section id="slide-orgb73c6e5">
+<h4 id="orgb73c6e5">Spectral function</h4>
  <!-- <object data="./Figures/xps_h2o.pdf" type="application/pdf" width="750px" height="750px">
     <embed src="./Figures/xps_h2o.pdf" type="application/pdf">
         <p>This browser does not support PDF viewing, but you can download the file
@@ -3646,13 +3682,13 @@ The <font color="green"> aims.out</font> file
 </section>
 </section>
 <section>
-<section id="slide-orgcbfe2d1">
-<h2 id="orgcbfe2d1">Learning resources</h2>
-<div class="outline-text-2" id="text-orgcbfe2d1">
+<section id="slide-org11296f4">
+<h2 id="org11296f4">Learning resources</h2>
+<div class="outline-text-2" id="text-org11296f4">
 </div>
 </section>
-<section id="slide-org7b23e73">
-<h3 id="org7b23e73">Publications and textbooks</h3>
+<section id="slide-org88ca4f8">
+<h3 id="org88ca4f8">Publications and textbooks</h3>
 <table cellspacing="0" cellpadding="0" rules=none>
     <tbody>
         <td>
@@ -3677,8 +3713,8 @@ The <font color="green"> aims.out</font> file
 </table>
 
 </section>
-<section id="slide-org9495d89">
-<h3 id="org9495d89">Video tutorials</h3>
+<section id="slide-org29a03af">
+<h3 id="org29a03af">Video tutorials</h3>
 <iframe width="336" height="189" src="https://www.youtube.com/embed/Kf6cY0PA8Sw"
  title="GW Golze" frameborder="0" allow="accelerometer; autoplay;
  clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -3693,16 +3729,16 @@ title="Large Scale" frameborder="0" allow="accelerometer; autoplay;
  clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </section>
-<section id="slide-orgdfcceb1">
-<h3 id="orgdfcceb1">FHI-aims tutorial series</h3>
+<section id="slide-org0382245">
+<h3 id="org0382245">FHI-aims tutorial series</h3>
 <iframe src="https://fhi-aims-club.gitlab.io/tutorials/rpa-and-gw-for-molecules-and-solids/"
 width="900" height="500"></iframe>
 
 </section>
 </section>
 <section>
-<section id="slide-orgef768ac">
-<h2 id="orgef768ac"></h2>
+<section id="slide-orgeed6e41">
+<h2 id="orgeed6e41"></h2>
 <h1>Thank you very much</h1>
 <br>
 <a href="https://github.com/Panadestein/gw_talk" target="_blank"><p>Slides source on GitHub</p></a>
@@ -3711,8 +3747,8 @@ width="900" height="500"></iframe>
 <img src="./Figures/tub.png" width="25%" style="padding: 29px; border: 0px;">
 
 </section>
-<section id="slide-org7eb901a">
-<h3 id="org7eb901a">Schwinger's functional derivative method</h3>
+<section id="slide-funcder">
+<h3 id="funcder">Schwinger's functional derivative method</h3>
 <aside class="notes">
 <p>
 The use of functional derivatives has of course resemblance to DFT, in a loose way
