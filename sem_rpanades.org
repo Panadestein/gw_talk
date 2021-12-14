@@ -243,10 +243,16 @@ GW compendium</a> for a complete list
 #+end_export
 
 ** Computation of the spectral function of the H_{2}O 1s orbital
+
+#+ATTR_HTML: :style line-height: 45px
 - Showcase FHI-aims workflow with a small application
 - The contour deformation technique has a larger scaling for
-  core levels $O(N^5)$ due to the number of residues
+  core levels $\color{red}{O(N^5)}$ due to the number of residues:
+  \begin{equation*}
+ \color{red}{N_{res}N_{occ}N_{virt}N^2_{aux}} \qquad \color{blue}{N_{\omega}N_{occ}N_{virt}N^2_{aux}}
+  \end{equation*}
 - Description of satellite structure is expensive due to spectral function
+  
 *** 
 The {{{color(green, geometry.in)}}} file
 #+begin_src example
